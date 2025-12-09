@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import Header from './components/Header';
 import TabNavigation from './components/TabNavigation';
+import ClientInfo from './components/ClientInfo';
 import CashOutRefinance from './components/CashOutRefinance';
 import HELOC from './components/HELOC';
 import Footer from './components/Footer';
@@ -13,6 +14,10 @@ import { generateCashOutRecommendations, generateHELOCRecommendations } from './
 function App() {
   // Active tab state
   const [activeTab, setActiveTab] = useState('cashout');
+
+  // Client info state
+  const [clientName, setClientName] = useState('');
+  const [loanOfficerName, setLoanOfficerName] = useState('');
 
   // Results state (shared for print/share)
   const [currentResults, setCurrentResults] = useState(null);
@@ -96,6 +101,14 @@ function App() {
         onTabChange={setActiveTab}
       />
 
+      {/* Client Info */}
+      <ClientInfo
+        clientName={clientName}
+        loanOfficerName={loanOfficerName}
+        onClientNameChange={setClientName}
+        onLoanOfficerNameChange={setLoanOfficerName}
+      />
+
       {/* Main Content */}
       <main className="flex-1 pb-8">
         {activeTab === 'cashout' ? (
@@ -121,6 +134,8 @@ function App() {
           inputs={currentInputs}
           type={activeTab}
           recommendations={currentRecommendations}
+          clientName={clientName}
+          loanOfficerName={loanOfficerName}
         />
       </div>
 
