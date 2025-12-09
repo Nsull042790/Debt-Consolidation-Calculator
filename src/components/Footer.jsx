@@ -45,7 +45,7 @@ export default function Footer() {
 
           {/* Version */}
           <div className="text-sm text-gray-500">
-            v1.0.0
+            v1.0.1
           </div>
         </div>
 

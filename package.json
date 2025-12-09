@@ -2,7 +2,7 @@
   "name": "debt-consolidation-calculator",
   "description": "Debt Consolidation & Cash Flow Calculator for Luminate Bank loan officers",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
